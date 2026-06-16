@@ -1,4 +1,4 @@
-> **Navigation:** [INDEX.md](INDEX.md) · [state.md](state.md) · [AGENTS.md](AGENTS.md)
+> **Navigation:** [INDEX.md](INDEX.md) · [state.md](state.md) · [Latest meeting (2026-06-16)](obsidian-vault/meetings/2026-06-16.md) · [AGENTS.md](AGENTS.md)
 
 This repo was created to experiment with ideas conveyed in the book Designing Data Intensive Applications (DDIA).
 
