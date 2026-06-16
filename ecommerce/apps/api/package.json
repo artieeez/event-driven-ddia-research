@@ -1,0 +1,11 @@
+{
+  "name": "@ecommerce/api",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@ecommerce/fulfillment": "workspace:*",
+    "@ecommerce/ordering": "workspace:*",
+    "@ecommerce/returns": "workspace:*",
+    "@ecommerce/shopping": "workspace:*"
+  }
+}

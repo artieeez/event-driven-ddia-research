@@ -64,6 +64,58 @@ importers:
         specifier: ^5.7.0
         version: 5.9.3
 
+  apps/api:
+    dependencies:
+      '@ecommerce/fulfillment':
+        specifier: workspace:*
+        version: link:../../libs/fulfillment
+      '@ecommerce/ordering':
+        specifier: workspace:*
+        version: link:../../libs/ordering
+      '@ecommerce/returns':
+        specifier: workspace:*
+        version: link:../../libs/returns
+      '@ecommerce/shopping':
+        specifier: workspace:*
+        version: link:../../libs/shopping
+
+  libs/fulfillment:
+    dependencies:
+      '@nestjs/common':
+        specifier: ^11.0.0
+        version: 11.1.27(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+
+  libs/ordering:
+    dependencies:
+      '@ecommerce/shared/domain':
+        specifier: workspace:*
+        version: link:../shared/domain
+      '@nestjs/common':
+        specifier: ^11.0.0
+        version: 11.1.27(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+
+  libs/returns:
+    dependencies:
+      '@ecommerce/shared/domain':
+        specifier: workspace:*
+        version: link:../shared/domain
+      '@nestjs/common':
+        specifier: ^11.0.0
+        version: 11.1.27(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+
+  libs/shared/contracts: {}
+
+  libs/shared/domain: {}
+
+  libs/shopping:
+    dependencies:
+      '@ecommerce/shared/domain':
+        specifier: workspace:*
+        version: link:../shared/domain
+      '@nestjs/common':
+        specifier: ^11.0.0
+        version: 11.1.27(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+
 packages:
 
   '@angular-devkit/core@19.2.24':
