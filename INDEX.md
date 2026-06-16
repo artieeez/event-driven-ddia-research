@@ -11,6 +11,7 @@ External services are expected to run in the author's personal cluster.
 | [state.md](state.md) | **Living snapshot** — what we're reading, building, and planning next |
 | [readme.MD](readme.MD) | Original repo intent and topics in focus |
 | [docs/](docs/) | Deeper write-ups and ADRs (as they accumulate) |
+| [docs/book-club/next-session.md](docs/book-club/next-session.md) | Proposed topics for the next book club meeting |
 
 ## Repository map
 

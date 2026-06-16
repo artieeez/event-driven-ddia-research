@@ -8,7 +8,8 @@
 
 | Item | Status |
 |------|--------|
-| Chapter 3 (2nd ed.) — read models | ✅ Read & discussed (book club) |
+| Chapter 3 (2nd ed.) — Data Models and Query Languages | 📖 Next session — see [docs/book-club/next-session.md](docs/book-club/next-session.md) |
+| Chapter 4 (2nd ed.) — Storage and Retrieval | ⏭️ Read after Ch. 3 discussion |
 | 1st ed. chapter numbering | May differ; always note edition when citing |
 
 Chapter 3 motivated the current direction: experiment with **event sourcing** and **read models** on a concrete domain.
@@ -55,4 +56,4 @@ Translate DDIA chapter 3 ideas (read models, storage/query trade-offs) into the 
 
 - [INDEX.md](INDEX.md) — repository map
 - [event-storming/](event-storming/) — full domain workshop
-- [docs/](docs/) — ADRs and deeper notes as they are written
+- [docs/book-club/next-session.md](docs/book-club/next-session.md) — next book club discussion prep
