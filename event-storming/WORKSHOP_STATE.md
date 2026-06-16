@@ -2,8 +2,8 @@
 
 > **Domain:** B2C E-Commerce  
 > **Scope:** Browsing → Cart → Checkout → Fulfillment → Returns  
-> **Status:** Phase 1 ✅, Phase 2 ✅, Phase 3 not started  
-> **Last updated:** Phase 2 completed
+> **Status:** Phase 1 ✅, Phase 2 ✅, Phase 3 ✅  
+> **Last updated:** Phase 3 completed
 
 ---
 
@@ -25,6 +25,12 @@
 - 0 hotspots (clean run)
 - Excalidraw process flow diagram generated
 
+### Phase 3 — Design Level: Aggregates ✅
+- 6 aggregates extracted from command/event clusters
+- 3 events classified as advisory (no transactional aggregate needed)
+- Invariants, lifecycle states, and guarded commands defined for each aggregate
+- Excalidraw aggregate diagram generated
+
 **Actors discovered:**
 - Human: `Customer`, `WarehouseWorker`, `ShippingCarrier`
 - Policy: `CartAbandonmentPolicy`, `PaymentAuthorizationPolicy`, `PaymentCapturePolicy`, `OrderConfirmationPolicy`, `FulfillmentTriggerPolicy`, `InventoryReservationPolicy`, `ReturnEvaluationPolicy`, `RefundIssuancePolicy`
@@ -32,6 +38,27 @@
 **Concepts documented:**
 - `event-storming/concept-policy.md` — What a policy is (and isn't)
 - `event-storming/concept-intent-vs-state.md` — Why redundant-seeming events have value
+
+---
+
+## Phase 3 Results: 6 Aggregates
+
+| # | Aggregate | Root | Events | Lifecycle |
+|---|-----------|------|--------|-----------|
+| 1 | Cart | `Cart` | 4 | Active → Abandoned |
+| 2 | Order | `Order` | 6 | Draft → Placed → Confirmed |
+| 3 | Payment | `Payment` | 2 | Authorized → Captured |
+| 4 | Inventory | `InventoryItem` | 1 | (quantity-based) |
+| 5 | Shipment | `Shipment` | 5 | Req → Pkd → Shp → Del |
+| 6 | Return | `Return` | 5 | Req → Apv → Rcv → Ref |
+
+**Advisory events (no aggregate):** ProductSearchPerformed, ProductViewed, ProductLiked
+
+**Cross-aggregate coordination** (eventual consistency via policies):
+- `OrderPlaced` → `AuthorizePayment` → `PaymentAuthorized` → `ConfirmOrder`
+- `OrderConfirmed` → `RequestFulfillment` → `ReserveInventory`
+- `OrderShipped` → `CapturePayment`
+- `OrderDelivered` enables `RequestReturn` → `IssueRefund` → refund via Payment
 
 ---
 
@@ -83,13 +110,12 @@
 
 ---
 
-## Current Phase: Phase 3 — Aggregates (not started)
+## Current Phase: Phase 4 — Bounded Contexts (not started)
 
 Next steps:
-1. Extract aggregates from command/event clusters
-2. Define invariants and transaction boundaries
-3. Identify aggregate roots
-4. Generate `03-aggregates.md` and `diagrams/aggregates.excalidraw`
+1. Group the 6 aggregates into bounded contexts based on ubiquitous language and cohesion
+2. Define context relationships (Customer/Supplier, ACL, etc.)
+3. Generate `04-bounded-contexts.md` and `diagrams/bounded-context-map.excalidraw`
 
 ---
 
@@ -100,13 +126,15 @@ event-storming/
 ├── 00-methodology.md                       # Legend, workshop phases, domain scope
 ├── 01-domain-events.md                     # All 26 events + inventory table ✅
 ├── 02-process-modeling.md                  # Commands, actors, read models, policies, external systems ✅
-├── 03-aggregates.md                        # NOT YET CREATED
+├── 03-aggregates.md                        # 6 aggregates with invariants, lifecycle, guarded commands ✅
 ├── 04-bounded-contexts.md                  # NOT YET CREATED
 ├── concept-policy.md                       # What a policy is (and isn't)
 ├── concept-intent-vs-state.md              # Why segregated events have value
 └── diagrams/
     ├── big-picture-events.excalidraw       # Phase 1 visual ✅
-    └── process-modeling.excalidraw         # Phase 2 visual ✅
+    ├── process-modeling.excalidraw         # Phase 2 visual ✅
+    ├── design-level-aggregates.excalidraw  # Phase 3 visual ✅
+    └── bounded-context-map.excalidraw      # NOT YET CREATED
 ```
 
 ---
@@ -114,13 +142,11 @@ event-storming/
 ## How to Resume
 
 ### Next steps (in order):
-1. **Phase 3** — Extract aggregates and invariants from the command/event clusters
-2. **Generate Phase 3 Excalidraw** — Aggregate canvas diagram
-3. **Phase 4** — Group into bounded contexts
-4. **Generate Phase 4 Excalidraw** — Bounded context map
+1. **Phase 4** — Group aggregates into bounded contexts
+2. **Generate Phase 4 Excalidraw** — Bounded context map
 
-### Prompt to resume Phase 3:
-> "Let's continue Event Storming Phase 3 — Aggregates. We have 26 events with their commands and actors from Phase 2 in `event-storming/02-process-modeling.md`. Let's extract aggregates, define invariants, and identify aggregate roots."
+### Prompt to resume Phase 4:
+> "Let's continue Event Storming Phase 4 — Bounded Contexts. We have 6 aggregates from Phase 3 in `event-storming/03-aggregates.md`. Let's group them into bounded contexts and define context relationships."
 
 ## CRITICAL: Facilitation Rules
 
