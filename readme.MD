@@ -1,3 +1,5 @@
+> **Navigation:** [INDEX.md](INDEX.md) · [state.md](state.md) · [AGENTS.md](AGENTS.md)
+
 This repo was created to experiment with ideas conveyed in the book Designing Data Intensive Applications (DDIA).
 
 I'm currently discussing the chapter 3 (2nd edition) in a book club and decided to experiment with Event Sourcing.
