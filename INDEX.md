@@ -1,6 +1,6 @@
-# Event Sourcing Research
+# DDIA Research
 
-Personal lab for experimenting with ideas from [*Designing Data-Intensive Applications*](https://dataintensive.net/) (DDIA). The domain is deliberately mundane — B2C e-commerce — so attention stays on data architecture, not business novelty.
+Personal lab for experimenting with ideas from [*Designing Data-Intensive Applications*](https://dataintensive.net/) (DDIA). Topics and projects may change over time; the current focus is **event sourcing** and related patterns (CQRS, read models) on a deliberately mundane B2C e-commerce domain — so attention stays on data architecture, not business novelty.
 
 External services are expected to run in the author's personal cluster.
 
@@ -15,7 +15,7 @@ External services are expected to run in the author's personal cluster.
 ## Repository map
 
 ```
-event-sourcing-research/
+ddia-research/
 ├── INDEX.md              ← you are here
 ├── state.md              ← keep updated
 ├── event-storming/       ← domain discovery (Event Storming workshop)
