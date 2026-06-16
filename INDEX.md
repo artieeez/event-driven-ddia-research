@@ -1,6 +1,6 @@
 # DDIA Research
 
-Personal lab for experimenting with ideas from [*Designing Data-Intensive Applications*](https://dataintensive.net/) (DDIA). Topics and projects may change over time; the current focus is **event sourcing** and related patterns (CQRS, read models) on a deliberately mundane B2C e-commerce domain — so attention stays on data architecture, not business novelty.
+Personal lab for experimenting with ideas from [*Designing Data-Intensive Applications*](https://dataintensive.net/) (DDIA). Topics and projects may change over time; the current focus is **CQRS**, **event sourcing**, and **read models** on a deliberately mundane B2C e-commerce domain — so attention stays on data architecture, not business novelty.
 
 External services are expected to run in the author's personal cluster.
 
@@ -26,10 +26,9 @@ More top-level folders may appear later (other domains, storage experiments). Fo
 
 ## Topics in focus
 
-1. DDD Event Storming
-2. Strategic DDD
-3. Tactical DDD
-4. CQRS & Event Sourcing
+1. CQRS
+2. Event Sourcing
+3. Read models
 
 ## Where to drill down
 
